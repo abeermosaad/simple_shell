@@ -9,10 +9,9 @@
 int main()
 {
 	char* line = NULL;
-	char **argv;
-	char *env[] = {NULL};
-	char *command;
-	char *arguments, *s;
+	// char **argv;
+	// char *env[] = {NULL};
+	char *s;
 	size_t len = 0;
 	ssize_t read;
 
@@ -29,15 +28,16 @@ int main()
 			// 	//do some coding
 			// }
 			
-			if(_which(line) != NULL) 
+			if((s = _which(line)) != NULL) 
 			{
-				printf("........\n");
-				s = _which(line);// ls -l
-				_excute(s, line);
+				// s = _which(line);// ls -l
+				// printf("%ld\n",strlen(s));
+				printf("%s\n", s);
+				// _excute(s, line);
+				printf("%s\n", s);
 			}
 		}
+		free(line);
 	}
 	return (0);
 }
-
-
