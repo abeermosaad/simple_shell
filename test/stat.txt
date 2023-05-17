@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <time.h>
+
+/**
+ * Stat() function give me all stat of the file
+ * stat(pointer to filename, address of the buffer that i will store the retrived
+ * info ~> in this file_info variable (struct stat file_info);
+ * Example filename.st_size--> give me the size of file
+*/
+
+If the stat function succeeds in retrieving the file information, it returns 0 (zero).
+If the stat function encounters an error, it returns -1
