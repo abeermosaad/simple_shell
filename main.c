@@ -32,9 +32,9 @@ int main()
 			{
 				// s = _which(line);// ls -l
 				// printf("%ld\n",strlen(s));
-				printf("%s\n", s);
-				// _excute(s, line);
-				printf("%s\n", s);
+				// printf("%s\n", s);
+				_excute(s, line);
+				// printf("%s\n", s);
 			}
 		}
 		free(line);
