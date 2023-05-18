@@ -12,10 +12,10 @@ char *handle_new_line(char *line)
 
 char *is_excutable(char *line)
 {
-	char *tok, *line_copy, *copy2, *path_copy, *path, *str;
+	char *tok, *line_copy, *path_copy, *path, *str;
 	int len_command = 0, len_tok = 0;
 
-	path = getenv("PATH");
+	path = getenv("PATH"); // _getenv
 	path_copy = strdup(path);
 
 	line_copy = strdup(line);
