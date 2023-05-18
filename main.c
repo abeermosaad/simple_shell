@@ -20,7 +20,7 @@ int main()
 			read = _getline(&line, &len, stdin);
 			if (read == -1)
 			{
-				printf("\n");
+				write(1, "\n", 1);
 				break;
 			}
 			if(is_builtin(line))
