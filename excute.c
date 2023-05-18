@@ -1,25 +1,27 @@
 #include "main.h"
+
 char **generate_argv(char *line)
 {
 	char **argv, *argv_idx;
 	int i = 0;
 
 	line = handle_new_line(line);
-	argv = malloc(strlen(line) + 1);
+	argv = malloc(sizeof(char*) * (strlen(line) + 1));
 
 	if (!argv)
 		perror("malloc");
-	
+
 	argv_idx = strtok(line, " ");
-	while (argv_idx) 
+	while (argv_idx)
 	{
 		argv[i] = argv_idx;
 		argv_idx = strtok(NULL, " ");
 		i++;
 	}
 	argv[i] = NULL;
-	return (argv);
+	return argv;
 }
+
 
 void excute(char *command, char **argv, char *env[])
 {

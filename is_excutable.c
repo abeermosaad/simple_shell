@@ -20,31 +20,34 @@ char *is_excutable(char *line)
 
 	line_copy = strdup(line);
 
-	strtok(line_copy, " ");
+	strtok(line_copy, " "); // ls -l -a
 
 	line_copy = handle_new_line(line_copy);
 
+	//printf("here\n");
 	if (access(line_copy, F_OK) == 0)
-		return (line_copy);
+		return line_copy;
 
-	len_command = (int)strlen(line_copy);	
+	len_command = (int)strlen(line_copy);
 	tok = strtok(path_copy, ":");
 	len_tok = (int)strlen(tok);
-	str = (char *)malloc(len_command + len_tok + 2);
-	
+
 	while (tok)
 	{
+		str = malloc(len_command + len_tok + 2);
 		strcpy(str, tok);
 		strcat(str, "/");
-		str = strcat(str, line_copy);
+		strcat(str, line_copy);
 
 		if (access(str, F_OK) == 0)
-			return (str);
-		
+			return str;
+
 		free(str);
 		tok = strtok(NULL, ":");
 		len_tok = (int)strlen(tok);
-		str = (char *)malloc(len_command + len_tok + 2);
 	}
-	return (NULL);
+
+	return NULL;
 }
+
+
