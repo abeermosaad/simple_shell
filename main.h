@@ -16,4 +16,5 @@ char* _getenv(char* input);
 void excute(char *command, char **argv, char *env[]);
 int is_builtin(char *line);
 char **generate_argv(char *line);
+char *_strtok(char *str, const char *delimiters);
 #endif

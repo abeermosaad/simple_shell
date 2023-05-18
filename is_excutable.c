@@ -20,7 +20,7 @@ char *is_excutable(char *line)
 
 	line_copy = strdup(line);
 
-	strtok(line_copy, " ");
+	_strtok(line_copy, " ");
 
 	line_copy = handle_new_line(line_copy);
 
@@ -28,7 +28,7 @@ char *is_excutable(char *line)
 		return line_copy;
 
 	len_command = (int)strlen(line_copy);
-	tok = strtok(path_copy, ":");
+	tok = _strtok(path_copy, ":");
 	len_tok = (int)strlen(tok);
 
 	while (tok)
@@ -42,7 +42,7 @@ char *is_excutable(char *line)
 			return str;
 
 		free(str);
-		tok = strtok(NULL, ":");
+		tok = _strtok(NULL, ":");
 		len_tok = (int)strlen(tok);
 	}
 	return (NULL);

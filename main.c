@@ -18,8 +18,11 @@ int main()
 		{
 			write(1, ":) ", sizeof(":) ") - 1);
 			read = _getline(&line, &len, stdin);
-			if (read == -1)  
+			if (read == -1)
+			{
+				printf("\n");
 				break;
+			}
 			if(is_builtin(line))
 			{
 				//do something
