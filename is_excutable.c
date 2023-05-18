@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * handle_new_line - Function handles the line that user enters
+ * @line: take the line from getline function
+ * Return: handled string without new line
+*/
 char *handle_new_line(char *line)
 {
 	int len;
