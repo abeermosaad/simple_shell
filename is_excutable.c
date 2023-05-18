@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * handle_new_line - Function handles the line that user enters
- * @line: take the line from getline function
- * Return: handled string without new line
+ * @line: Take the line from getline function
+ * Return: The handled string without new line(\n)
 */
 char *handle_new_line(char *line)
 {
@@ -13,7 +13,11 @@ char *handle_new_line(char *line)
 		line[len - 1] = '\0';
 	return (line);
 }
-
+/**
+ * is_excutable - Function that check if the cmd is excutable or not
+ * @line: Take the line from getline function
+ * Return: The command
+*/
 char *is_excutable(char *line)
 {
 	char *tok, *line_copy, *path_copy, *path, *str;
