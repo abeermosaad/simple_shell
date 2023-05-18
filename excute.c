@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * generate_argv - Function That generate all the arguments
+ * @line: take the line from getline function
+ * Return: array of strings (Vector)
+*/
 char **generate_argv(char *line)
 {
 	char **argv, *argv_idx;
