@@ -8,10 +8,7 @@
 */
 int main()
 {
-	char* line = NULL;
-	// char **argv;
-	// char *env[] = {NULL};
-	char *s;
+	char* line = NULL, *command, **argv, *env[] = {NULL};
 	size_t len = 0;
 	ssize_t read;
 
@@ -23,19 +20,23 @@ int main()
 			read = getline(&line, &len, stdin);
 			if (read == -1)  
 				break;
-			// if(built_in(line))
-			// {
-			// 	//do some coding
-			// }
-			
-			if((s = _which(line)) != NULL) 
+			if(is_builtin(line))
 			{
-				// s = _which(line);// ls -l
-				// printf("%ld\n",strlen(s));
-				// printf("%s\n", s);
-				_excute(s, line);
-				// printf("%s\n", s);
+				//do something
 			}
+			printf("--------------\n");
+			if((command = is_excutable(line)) != NULL) 
+			{
+				printf("%s\n", command);
+				argv = generate_argv(line);
+				for (int i = 0; argv[i] != NULL; i++)
+				{
+					printf("%s\n", argv[i]);
+				}
+				
+				excute(command, argv, env);
+			}
+			
 		}
 		free(line);
 	}
