@@ -4,15 +4,15 @@
  * @argc: Argument Count
  * @argv: Argument vector
  * @env: The shell environment
- * Return: 
+ * Return: .
 */
-int main()
+int main(void)
 {
-	char* line = NULL, *command, **argv, *env[] = {NULL};
+	char *line = NULL, *command, **argv, *env[] = {NULL};
 	size_t len = 0;
 	ssize_t read;
 
-	if(isatty(STDIN_FILENO))
+	if (isatty(STDIN_FILENO))
 	{
 		while (1)
 		{
@@ -23,15 +23,18 @@ int main()
 				write(1, "\n", 1);
 				break;
 			}
-			if(is_builtin(line))
+			if (is_builtin(line))
 			{
 				//do something
 			}
-			if((command = is_excutable(line)) != NULL)
+			command = is_excutable(line);
+			if (command != NULL)
 			{
+				// first the command with first space like this gives segfault:
+				//WARNING --> // space ls -l while in the normal shell it will works
 				argv = generate_argv(line);
 				excute(command, argv, env);
-			}	
+			}
 		}
 		free(line);
 	}

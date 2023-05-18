@@ -6,7 +6,7 @@ char **generate_argv(char *line)
 	int i = 0;
 
 	line = handle_new_line(line);
-	argv = malloc(sizeof(char*) * (strlen(line) + 1));
+	argv = malloc(sizeof(char *) * (_strlen(line) + 1));
 
 	if (!argv)
 		perror("malloc");
@@ -19,7 +19,7 @@ char **generate_argv(char *line)
 		i++;
 	}
 	argv[i] = NULL;
-	return argv;
+	return (argv);
 }
 
 

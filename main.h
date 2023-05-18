@@ -9,6 +9,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+void _strcat(char *str1, const char *str2);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *is_excutable(char * cmd);
 char *handle_new_line(char *line);
