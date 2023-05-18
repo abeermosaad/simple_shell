@@ -55,3 +55,8 @@ void _strcat(char *str1, const char *str2)
 
 	str1[len1 + i] = '\0';
 }
+/**
+ * _strdup - Function that copy
+ * @str1: first string
+ * @str2: Second String
+*/
