@@ -26,7 +26,13 @@ char **generate_argv(char *line)
 	return (argv);
 }
 
-
+/**
+ * excute - Function That execute the cmd
+ * @command: The command
+ * @argv: All the arguments after the cmd
+ * @env: All environments
+ * Return: void
+*/
 void excute(char *command, char **argv, char *env[])
 {
 	int exc;
