@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *is_excutable(char * cmd);
 char *handle_new_line(char *line);
 char* _getenv(char* input);

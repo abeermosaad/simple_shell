@@ -17,7 +17,7 @@ int main()
 		while (1)
 		{
 			write(1, ":) ", sizeof(":) ") - 1);
-			read = getline(&line, &len, stdin);
+			read = _getline(&line, &len, stdin);
 			if (read == -1)  
 				break;
 			if(is_builtin(line))
