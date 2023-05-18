@@ -20,11 +20,10 @@ char *is_excutable(char *line)
 
 	line_copy = strdup(line);
 
-	strtok(line_copy, " "); // ls -l -a
+	strtok(line_copy, " ");
 
 	line_copy = handle_new_line(line_copy);
 
-	//printf("here\n");
 	if (access(line_copy, F_OK) == 0)
 		return line_copy;
 
@@ -46,8 +45,7 @@ char *is_excutable(char *line)
 		tok = strtok(NULL, ":");
 		len_tok = (int)strlen(tok);
 	}
-
-	return NULL;
+	return (NULL);
 }
 
 

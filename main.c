@@ -24,18 +24,11 @@ int main()
 			{
 				//do something
 			}
-			
 			if((command = is_excutable(line)) != NULL)
 			{
-				// printf("%s\n", command);
 				argv = generate_argv(line);
-				// for (int i = 0; argv[i] != NULL; i++)
-				// {
-				// 	printf("%s\n", argv[i]);
-				// }
 				excute(command, argv, env);
-			}
-			
+			}	
 		}
 		free(line);
 	}
