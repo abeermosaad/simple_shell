@@ -10,7 +10,9 @@ int main(void)
 {
 	char *line = NULL, *command, **argv, *env[] = {NULL};
 	size_t len = 0;
+	int i;
 	ssize_t read;
+	built_t cmd[] = {{"exit", ex}}; // egzit kh
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -24,20 +26,17 @@ int main(void)
 				break;
 			}
 			line = handle_new_line(line);
-			if (is_builtin(line))
-			{
-				/*do something*/
-			}
+			i = is_builtin(cmd, line);
 			command = is_excutable(line);
-			if (command != NULL)
+			if (i != -1)
+				cmd[i].func(line);
+			else if (command != NULL)
 			{
 				argv = generate_argv(line);
 				excute(command, argv, env);
 			}
 			else if (command == NULL)
-			{
 				perror("command not found");
-			}
 		}
 		free(argv);
 		free(line);

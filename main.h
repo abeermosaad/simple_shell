@@ -9,6 +9,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+typedef struct built
+{
+	char *cmd;
+	int (*func)(char *c);
+}built_t;
+int ex(char *line);
+int _atoi(char *s);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 void _strcat(char *str1, const char *str2);
@@ -17,7 +24,7 @@ char *is_excutable(char * cmd);
 char *handle_new_line(char *line);
 char* _getenv(char* input);
 void excute(char *command, char **argv, char *env[]);
-int is_builtin(char *line);
+int is_builtin(built_t command[] ,char *line);
 char **generate_argv(char *line);
 char *_strtok(char *str, const char *delimiters);
 #endif
