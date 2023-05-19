@@ -23,19 +23,23 @@ int main(void)
 				write(1, "\n", 1);
 				break;
 			}
+			line = handle_new_line(line);
 			if (is_builtin(line))
 			{
-				//do something
+				/*do something*/
 			}
 			command = is_excutable(line);
 			if (command != NULL)
 			{
-				// first the command with first space like this gives segfault:
-				//WARNING --> // space ls -l while in the normal shell it will works
 				argv = generate_argv(line);
 				excute(command, argv, env);
 			}
+			else if (command == NULL)
+			{
+				perror("command not found");
+			}
 		}
+		free(argv);
 		free(line);
 	}
 	return (0);
