@@ -6,13 +6,11 @@
  * @env: The shell environment
  * Return: .
 */
-int main(void)
+int main(int argc, char *argv[], char **env)
 {
-	char *line = NULL, *command, **argv, *env[] = {NULL};
+	char *line = NULL, *command, **cmd_argv, *environment[] = {NULL};
 	size_t len = 0;
-	int i;
 	ssize_t read;
-	built_t cmd[] = {{"exit", ex}}; // egzit kh
 
 	if (isatty(STDIN_FILENO))
 	{
@@ -25,17 +23,15 @@ int main(void)
 				write(1, "\n", 1);
 				break;
 			}
+			if (strcmp(line, "\n") == 0)
+				continue;
 			line = handle_new_line(line);
-			i = is_builtin(cmd, line);
+			is_builtin(line, env);
 			command = is_excutable(line);
-			if (i != -1)
+			if (command != NULL)
 			{
-				cmd[i].func(line);
-			}
-			else if (command != NULL)
-			{
-				argv = generate_argv(line);
-				excute(command, argv, env);
+				cmd_argv = generate_argv(line);
+				excute(command, cmd_argv, environment);
 			}
 			else if (command == NULL)
 				perror("command not found");

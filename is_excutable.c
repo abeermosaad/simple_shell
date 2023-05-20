@@ -8,6 +8,11 @@ char *handle_new_line(char *line)
 {
 	int len, i = 0;
 
+	len = (int)_strlen(line);
+	if (len == 1 && line[0] == '\n')
+	{
+		return (line);
+	}
 	while (line[i])
 	{
 		if (line[i] != ' ')
@@ -35,7 +40,7 @@ char *is_excutable(char *line)
 	path = getenv("PATH");
 	path_copy = strdup(path);
 	line_copy = strdup(line);
-	_strtok(line_copy, " ");
+	_strtok(line_copy, TOK_DELIM);
 	if (access(line_copy, F_OK) == 0)
 	{
 		free(path_copy);

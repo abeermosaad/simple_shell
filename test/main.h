@@ -9,6 +9,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+char *_getenv1(char *c);
+extern char** environ;
 char *_which(char * cmd);
 char* _getenv(char* input);
 #endif

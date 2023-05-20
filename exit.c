@@ -13,6 +13,12 @@ int ex(char *line)
 	line_copy = strdup(line);
 	line_copy = _strtok(line_copy, " ");
 	status = _strtok(NULL, " ");
+	if (!status)
+	{
+		free(line_copy);
+		free(line);
+		exit(0);
+	}
 	len = _strlen(status);
 	if (status != NULL)
 	{
@@ -25,11 +31,10 @@ int ex(char *line)
 				is_valid = 0;
 				break;
 			}
-			
 		}
 		if (is_valid)
 		{
-			exit_status = atoi(status);
+			exit_status = _atoi(status);
 			free(line_copy);
 			free(line);
 			exit(exit_status);
@@ -40,5 +45,6 @@ int ex(char *line)
 			perror("The exit is wrong");
 		}
 	}
+	
 	return (exit_status);
 }

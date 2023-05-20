@@ -14,11 +14,11 @@ char **generate_argv(char *line)
 	if (!argv)
 		perror("malloc");
 
-	argv_idx = _strtok(line, " ");
+	argv_idx = _strtok(line, TOK_DELIM);
 	while (argv_idx)
 	{
 		argv[i] = argv_idx;
-		argv_idx = _strtok(NULL, " ");
+		argv_idx = _strtok(NULL, TOK_DELIM);
 		i++;
 	}
 	argv[i] = NULL;
