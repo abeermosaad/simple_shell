@@ -31,7 +31,6 @@ int main(void)
 			if (i != -1)
 			{
 				cmd[i].func(line);
-				free(line);
 			}
 			else if (command != NULL)
 			{
