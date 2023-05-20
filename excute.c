@@ -48,4 +48,5 @@ void excute(char *command, char **argv, char *env[])
 	}
 	else
 		wait(NULL);
+	free(argv);
 }

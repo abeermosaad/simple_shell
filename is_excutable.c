@@ -37,7 +37,10 @@ char *is_excutable(char *line)
 	line_copy = strdup(line);
 	_strtok(line_copy, " ");
 	if (access(line_copy, F_OK) == 0)
+	{
+		free(path_copy);
 		return (line_copy);
+	}
 	len_command = (int)_strlen(line_copy);
 	tok = _strtok(path_copy, ":");
 	len_tok = (int)_strlen(tok);

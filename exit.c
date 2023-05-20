@@ -1,19 +1,24 @@
 #include "main.h"
-
+/**
+ * ex - Function that exit
+ * @line: From user
+ * Return: status
+*/
 int ex(char *line)
 {
-	int i, status, num, id;
+	int exit_status = 0;
+	char *status;
 	char *line_copy;
 
 	line_copy = strdup(line);
 	line_copy = _strtok(line_copy, " ");
-	line_copy = _strtok(NULL, " ");
+	status = strtok(NULL, " ");
 
-	if (line_copy == NULL)
-		exit(0);
+	if (status != NULL)
+		exit_status = atoi(status);
 
-	num = _atoi(line_copy);
 	free(line_copy);
-	exit(num);
-	return(num);
+	free(line);
+	exit(exit_status);
+	return (exit_status);
 }

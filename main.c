@@ -19,7 +19,7 @@ int main(void)
 		while (1)
 		{
 			write(1, ":) ", sizeof(":) ") - 1);
-			read = _getline(&line, &len, stdin);
+			read = getline(&line, &len, stdin);
 			if (read == -1)
 			{
 				write(1, "\n", 1);
@@ -29,7 +29,10 @@ int main(void)
 			i = is_builtin(cmd, line);
 			command = is_excutable(line);
 			if (i != -1)
+			{
 				cmd[i].func(line);
+				free(line);
+			}
 			else if (command != NULL)
 			{
 				argv = generate_argv(line);
@@ -37,8 +40,8 @@ int main(void)
 			}
 			else if (command == NULL)
 				perror("command not found");
+			free(command);
 		}
-		free(argv);
 		free(line);
 	}
 	return (0);
