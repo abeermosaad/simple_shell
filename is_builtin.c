@@ -1,6 +1,6 @@
 #include "main.h"
 
-void is_builtin(char *line, char **env)
+void is_builtin(char *line, char **env, int status)
 {
 	int i, flag = 1;
 	char *line_copy;
@@ -20,7 +20,7 @@ void is_builtin(char *line, char **env)
 	switch(i)
 	{
 		case 0:
-			ex(line);
+			ex(line, status);
 			break;
 		case 1:
 			_env(env);

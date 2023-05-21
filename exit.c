@@ -4,7 +4,7 @@
  * @line: From user
  * Return: status
 */
-int ex(char *line)
+int ex(char *line, int stat)
 {
 	int exit_status = 0, len, is_valid = 1, i;
 	char *status;
@@ -17,7 +17,7 @@ int ex(char *line)
 	{
 		free(line_copy);
 		free(line);
-		exit(0);
+		exit(WEXITSTATUS(stat));
 	}
 	len = _strlen(status);
 	if (status != NULL)

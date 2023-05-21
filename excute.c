@@ -32,10 +32,11 @@ char **generate_argv(char *line)
  * @env: All environments
  * Return: void
 */
-void excute(char *command, char **argv, char *env[])
+void excute(char *command, char **argv, char *env[], int *status)
 {
 	int exc;
 	int id;
+	pid_t terminatedChildPid;
 
 	id = fork();
 	if (id == -1)
@@ -44,9 +45,10 @@ void excute(char *command, char **argv, char *env[])
 	{
 		exc = execve(command, argv, env);
 		if (exc == -1)
-			perror("ERROR IN EXCEUTE");
+			exit(126);
+		exit(EXIT_FAILURE);
 	}
 	else
-		wait(NULL);
+		wait(status);
 	free(argv);
 }
