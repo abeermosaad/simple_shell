@@ -1,6 +1,6 @@
 #include "main.h"
 
-void is_builtin(char *line, char **env, int status)
+int is_builtin(char *line, char **env, int status)
 {
 	int i, flag = 1;
 	char *line_copy;
@@ -27,5 +27,10 @@ void is_builtin(char *line, char **env, int status)
 			break;
 	}
 	if (flag)
+	{
 		free(line_copy);
+		return(-1);
+	}
+	else
+		return(i);
 }

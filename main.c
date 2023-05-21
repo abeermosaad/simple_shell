@@ -8,7 +8,7 @@
 */
 int main(int argc, char *argv[], char **env)
 {
-	char *line = NULL, *command, **cmd_argv, *environment[] = {NULL};
+	char *line = NULL, *command, **cmd_argv = {NULL}, *environment[] = {NULL};
 	size_t len = 0;
 	ssize_t read;
 	int status = 0, count = 0;
@@ -28,16 +28,20 @@ int main(int argc, char *argv[], char **env)
 			if (strcmp(line, "\n") == 0)
 				continue;
 			line = handle_new_line(line);
-			is_builtin(line, env, status);//2256
-			command = is_excutable(line);
-			if (command != NULL)
+			command = is_excutable(line); 
+			if(is_builtin(line, env, status) != -1)
+				continue;
+			else if (command != NULL)
 			{
 				cmd_argv = generate_argv(line);
 				excute(command, cmd_argv, environment, &status);
-				print_error(argv[0], count, WEXITSTATUS(status));//2256
+				print_error(argv[0], count, WEXITSTATUS(status), line); //permision denied
 			}
 			else if (command == NULL)
-				perror("command not found");
+			{
+				excute_notFound(line, cmd_argv, environment, &status);
+				print_error(argv[0], count, WEXITSTATUS(status), line);
+			}
 			free(command);
 		}
 		free(line);

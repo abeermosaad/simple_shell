@@ -42,7 +42,8 @@ int ex(char *line, int stat)
 		else
 		{
 			free(line_copy);
-			perror("The exit is wrong");
+			stat = 2;
+			excute_exit(status, NULL, NULL, &stat);
 		}
 	}
 	return (exit_status);

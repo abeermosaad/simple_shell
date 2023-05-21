@@ -11,7 +11,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
-void print_error(char *argv, int count, int stat);
+void excute_notFound (char *line, char **cmd_argv, char *environment[], int *status);
+void excute_exit (char *line, char **cmd_argv, char *environment[], int *status);
+void print_error(char *argv, int count, int stat, char *line);
 void _env(char **env);
 int ex(char *line, int stat);
 int _atoi(char *s);
@@ -23,7 +25,7 @@ char *is_excutable(char * cmd);
 char *handle_new_line(char *line);
 char* _getenv(char* input);
 void excute(char *command, char **argv, char *env[], int *status);
-void is_builtin(char *line, char **env, int status);
+int is_builtin(char *line, char **env, int status);
 char **generate_argv(char *line);
 char *_strtok(char *str, const char *delimiters);
 #endif

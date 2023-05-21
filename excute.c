@@ -43,7 +43,8 @@ void excute(char *command, char **argv, char *env[], int *status)
 		perror("ERROR IN FORK");
 	if (id == 0)
 	{
-		exc = execve(command, argv, env);
+		
+		exc = execve(command, argv, env); /// /bin 126 
 		if (exc == -1)
 			exit(126);
 		exit(EXIT_FAILURE);
