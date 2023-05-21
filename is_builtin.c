@@ -10,14 +10,14 @@ void is_builtin(char *line, char **env, int status)
 	line_copy = _strtok(line_copy, " ");
 	for (i = 0; i < 2; i++)
 	{
-		if(strcmp(line_copy, built_cmd[i]) == 0)
-		{	
+		if (strcmp(line_copy, built_cmd[i]) == 0)
+		{
 			flag = 0;
 			free(line_copy);
 			break;
 		}
 	}
-	switch(i)
+	switch (i)
 	{
 		case 0:
 			ex(line, status);
@@ -26,6 +26,6 @@ void is_builtin(char *line, char **env, int status)
 			_env(env);
 			break;
 	}
-	if(flag)
+	if (flag)
 		free(line_copy);
 }

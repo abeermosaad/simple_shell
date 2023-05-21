@@ -4,7 +4,7 @@
  * @line: From user
  * Return: status
 */
-void print_error(char *programe_name, int count,int stat)//126
+void print_error(char *programe_name, int count, int stat)//126
 {
 	if (stat == 126)
 	{
@@ -17,6 +17,4 @@ void print_error(char *programe_name, int count,int stat)//126
 		write(2, "Permission denied", 17);
 		write(2, "\n", 1);
 	}
-	
-	
 }

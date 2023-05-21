@@ -12,6 +12,7 @@ int main(int argc, char *argv[], char **env)
 	size_t len = 0;
 	ssize_t read;
 	int status = 0, count = 0;
+
 	if (isatty(STDIN_FILENO))
 	{
 		while (1)
@@ -33,7 +34,7 @@ int main(int argc, char *argv[], char **env)
 			{
 				cmd_argv = generate_argv(line);
 				excute(command, cmd_argv, environment, &status);
-				print_error(argv[0], count,WEXITSTATUS(status));//2256
+				print_error(argv[0], count, WEXITSTATUS(status));//2256
 			}
 			else if (command == NULL)
 				perror("command not found");

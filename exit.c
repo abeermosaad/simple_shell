@@ -45,6 +45,5 @@ int ex(char *line, int stat)
 			perror("The exit is wrong");
 		}
 	}
-	
 	return (exit_status);
 }
