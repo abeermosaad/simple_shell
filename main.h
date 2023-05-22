@@ -30,4 +30,6 @@ int excute(char *command, char **argv, char *env[], int *status);
 int is_builtin(char *programe, char *line, char **env, int *status, int count);
 char **generate_argv(char *line);
 char *_strtok(char *str, const char *delimiters);
+void non_interactive(char **argv, char *env[]);
+void interactive(char **argv, char *env[]);
 #endif
