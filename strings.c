@@ -55,7 +55,49 @@ void _strcat(char *str1, const char *str2)
 	str1[len1 + i] = '\0';
 }
 /**
- * _strdup - Function that copy
- * @str1: first string
- * @str2: Second String
+*_strdup - returns a pointer to a newly allocated space in memory
+*@str: string to be duplicated
+*Return: pointer to a new string which is a duplicate of the string str
 */
+char *_strdup(char *str)
+{
+	char *t;
+	unsigned int j;
+	unsigned int size;
+
+	if (str == NULL)
+		return (NULL);
+
+	size = strlen(str);
+
+	t = (char *)malloc(size + 1);
+
+	if (t == NULL)
+		return (NULL);
+
+	for (j = 0; j <= size; j++)
+		t[j] = str[j];
+
+	return (t);
+}
+/**
+ * _strcmp -  function that compares two strings.
+ * @s1:string1 to compare.
+ * @s2: string two to compare.
+ * Return: 0.
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+	int result = 0;
+
+	for (i = 0; ((s1[i] != '\0') && (s2[i] != '\0')); i++)
+	{
+		result = (s1[i] - s2[i]);
+		if (result != 0)
+		{
+			return (result);
+		}
+	}
+	return (0);
+}

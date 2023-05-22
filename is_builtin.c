@@ -1,6 +1,14 @@
 #include "main.h"
-
-int is_builtin(char *line, char **env, int status)
+/**
+ * is_builtin - Function that check built ins
+ * @programe: Programe_name
+ * @count: Count commands
+ * @env: Environment
+ * @status: Stat of process
+ * @line: The line
+ * Return: .
+*/
+int is_builtin(char *programe, char *line, char **env, int *status, int count)
 {
 	int i, flag = 1;
 	char *line_copy;
@@ -10,7 +18,7 @@ int is_builtin(char *line, char **env, int status)
 	line_copy = _strtok(line_copy, " ");
 	for (i = 0; i < 2; i++)
 	{
-		if (strcmp(line_copy, built_cmd[i]) == 0)
+		if (_strcmp(line_copy, built_cmd[i]) == 0)
 		{
 			flag = 0;
 			free(line_copy);
@@ -20,7 +28,7 @@ int is_builtin(char *line, char **env, int status)
 	switch (i)
 	{
 		case 0:
-			ex(line, status);
+			ex(line, status, count, programe);
 			break;
 		case 1:
 			_env(env);
@@ -29,8 +37,8 @@ int is_builtin(char *line, char **env, int status)
 	if (flag)
 	{
 		free(line_copy);
-		return(-1);
+		return (-1);
 	}
 	else
-		return(i);
+		return (i);
 }

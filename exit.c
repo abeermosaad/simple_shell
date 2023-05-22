@@ -2,9 +2,12 @@
 /**
  * ex - Function that exit
  * @line: From user
+ * @stat: Stat of process
+ * @count: Count commands
+ * @programe: Programe_name
  * Return: status
 */
-int ex(char *line, int stat)
+int ex(char *line, int *stat, int count, char *programe)
 {
 	int exit_status = 0, len, is_valid = 1, i;
 	char *status;
@@ -13,11 +16,11 @@ int ex(char *line, int stat)
 	line_copy = strdup(line);
 	line_copy = _strtok(line_copy, " ");
 	status = _strtok(NULL, " ");
+
 	if (!status)
 	{
 		free(line_copy);
-		free(line);
-		exit(WEXITSTATUS(stat));
+		exit(*stat);
 	}
 	len = _strlen(status);
 	if (status != NULL)
@@ -36,14 +39,13 @@ int ex(char *line, int stat)
 		{
 			exit_status = _atoi(status);
 			free(line_copy);
-			free(line);
 			exit(exit_status);
 		}
 		else
 		{
+			*stat = 2;
+			print_error(programe, count, *stat, line);
 			free(line_copy);
-			stat = 2;
-			excute_exit(status, NULL, NULL, &stat);
 		}
 	}
 	return (exit_status);
