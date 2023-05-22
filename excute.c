@@ -30,9 +30,10 @@ char **generate_argv(char *line)
  * @command: The command
  * @argv: All the arguments after the cmd
  * @env: All environments
+ * @status: State of process
  * Return: void
 */
-void excute(char *command, char **argv, char *env[], int *status)
+int excute(char *command, char **argv, char *env[], int *status)
 {
 	int exc;
 	int id;
@@ -43,13 +44,16 @@ void excute(char *command, char **argv, char *env[], int *status)
 		perror("ERROR IN FORK");
 	if (id == 0)
 	{
-		
-		exc = execve(command, argv, env); /// /bin 126 
+		exc = execve(command, argv, env);
 		if (exc == -1)
 			exit(126);
 		exit(EXIT_FAILURE);
 	}
 	else
+	{
 		wait(status);
+		*status = WEXITSTATUS(*status);
+	}
 	free(argv);
+	return (0);
 }
