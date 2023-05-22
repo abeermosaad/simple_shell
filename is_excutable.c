@@ -8,11 +8,6 @@ char *handle_new_line(char *line)
 {
 	int len, i = 0;
 
-	len = (int)_strlen(line);
-	if (len == 1 && line[0] == '\n')
-	{
-		return (line);
-	}
 	while (line[i])
 	{
 		if (line[i] != ' ')
@@ -21,6 +16,11 @@ char *handle_new_line(char *line)
 			break;
 		}
 		i++;
+	}
+	len = (int)_strlen(line);
+	if (len == 1 && line[0] == '\n')
+	{
+		return (line);
 	}
 	len = (int)_strlen(line);
 	if (line[len - 1] == '\n')

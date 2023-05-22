@@ -27,14 +27,10 @@ int main(int argc, char *argv[], char **env)
 			}
 			line = handle_new_line(line);
 			command = is_excutable(line);
-
 			if (_strcmp(line, "\n") == 0)
 				continue;
 			else if (is_builtin(argv[0], line, env, &status, count) != -1)
-			{
-
 				continue;
-			}
 			else if (command != NULL)
 			{
 				cmd_argv = generate_argv(line);
@@ -44,10 +40,9 @@ int main(int argc, char *argv[], char **env)
 			}
 			else if (command == NULL)
 			{
-				// excute_notFound(line, cmd_argv, environment, &status);
-				// print_error(argv[0], count, WEXITSTATUS(status), line);
+				excute_notFound(line, cmd_argv, environment, &status);
+				print_error(argv[0], count, status, line);
 			}
-			free(command);
 		}
 		free(line);
 	}
