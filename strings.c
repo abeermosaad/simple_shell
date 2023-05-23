@@ -90,6 +90,13 @@ int _strcmp(char *s1, char *s2)
 {
 	int i = 0;
 	int result = 0;
+	int len1, len2;
+
+	len1 = (int)strlen(s1);
+	len2 = (int)strlen(s2);
+
+	if(len1 != len2) //exit.c exit 
+		return(-1);
 
 	for (i = 0; ((s1[i] != '\0') && (s2[i] != '\0')); i++)
 	{

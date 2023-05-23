@@ -41,7 +41,7 @@ char *is_excutable(char *line)
 	path_copy = strdup(path);
 	line_copy = strdup(line);
 	_strtok(line_copy, TOK_DELIM);
-	if (access(line_copy, F_OK) == 0)
+	if ((access(line_copy, F_OK) == 0) && (strstr(line_copy, "bin")))
 	{
 		free(path_copy);
 		return (line_copy);
