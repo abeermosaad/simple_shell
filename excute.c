@@ -37,7 +37,6 @@ int excute(char *command, char **argv, char *env[], int *status)
 {
 	int exc;
 	int id;
-	pid_t terminatedChildPid;
 
 	id = fork();
 	if (id == -1)

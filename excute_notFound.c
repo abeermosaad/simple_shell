@@ -5,7 +5,6 @@ char *environment[], int *status)
 {
 	int exc;
 	int id;
-	pid_t terminatedChildPid;
 
 	id = fork();
 	if (id == -1)

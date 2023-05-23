@@ -9,7 +9,7 @@
 */
 void print_error(char *programe_name, int count, int stat, char *line)
 {
-	char *counter, *token;
+	char *counter;
 
 	counter = print_number(count);
 	if (stat == 126)

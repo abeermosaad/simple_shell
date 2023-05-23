@@ -37,11 +37,11 @@ char *is_excutable(char *line)
 	char *tok, *line_copy, *path_copy, *path, *str;
 	int len_command = 0, len_tok = 0;
 
-	path = getenv("PATH");
+	path = _getenv("PATH");
 	path_copy = _strdup(path);
 	line_copy = _strdup(line);
 	_strtok(line_copy, TOK_DELIM);
-	if ((access(line_copy, F_OK) == 0) && (strstr(line_copy, "bin")))
+	if ((access(line_copy, F_OK) == 0) && ((line_copy[0] == '/') || (line_copy[1] == '/') || (line_copy[2] == '/')))
 	{
 		free(path_copy);
 		return (line_copy);

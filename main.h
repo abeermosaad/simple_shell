@@ -12,6 +12,9 @@
 #include <dirent.h>
 /*env command*/
 void _env(char **env);
+char *_getenv(char *name);
+extern char **environ;
+int setenv_builtin(const char* name, const char* value);
 /*exit command*/
 int ex(char *line, int *stat, int count, char *programe);
 /*Handeled functions*/
@@ -22,6 +25,7 @@ char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 int _atoi(char *s);
 char *print_number(int n);
+char *my_strstr(const char *haystack, const char *needle);
 /*Advanced functions*/
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *_strtok(char *str, const char *delimiters);

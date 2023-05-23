@@ -12,7 +12,7 @@ int is_builtin(char *programe, char *line, char **env, int *status, int count)
 {
 	int i, flag = 1;
 	char *line_copy;
-	char *built_cmd[] = {"exit", "env"};
+	char *built_cmd[] = {"exit", "env", "echo"};
 
 	line_copy = strdup(line);
 	line_copy = _strtok(line_copy, " ");
