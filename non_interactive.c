@@ -16,7 +16,7 @@ void non_interactive(char **argv, char *env[])
 	while (1)
 	{
 		count++;
-		read = getline(&line, &len, stdin);
+		read = _getline(&line, &len, stdin);
 		if (read == -1)
 		{
 			break;

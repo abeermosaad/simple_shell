@@ -17,7 +17,7 @@ void interactive(char **argv, char *env[])
 	{
 		count++;
 		write(1, ":) ", sizeof(":) ") - 1);
-		read = getline(&line, &len, stdin);
+		read = _getline(&line, &len, stdin);
 		if (read == -1)
 		{
 			write(1, "\n", 1);
