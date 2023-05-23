@@ -13,43 +13,72 @@ void print_error(char *programe_name, int count, int stat, char *line)
 
 	counter = print_number(count);
 	if (stat == 126)
-	{
-		write(2, programe_name, _strlen(programe_name));
-		write(2, ": ", 2);
-		write(2, counter, strlen(counter));
-		write(2, ": ", 2);
-		write(2, line, (int)strlen(line));
-		write(2, ": ", 2);
-		write(2, "Permission denied", sizeof("Permission denied") - 1);
-		write(2, "\n", 1);
-	}
+		path_error(programe_name, counter, line);
 	if (stat == 127)
-	{
-		write(2, programe_name, _strlen(programe_name));
-		write(2, ": ", 2);
-		write(2, counter, strlen(counter));
-		write(2, ": ", 2);
-		write(2, line, (int)strlen(line));
-		write(2, ": ", 2);
-		write(2, "not found", sizeof("not found") - 1);
-		write(2, "\n", 1);
-	}
+		command_error(programe_name, counter, line);
 	if (stat == 2)
-	{
-		strtok(line, TOK_DELIM);
-		write(2, programe_name, _strlen(programe_name));
-		write(2, ": ", 2);
-		write(2, counter, strlen(counter));
-		write(2, ": ", 2);
-		write(2, line, (int)strlen(line));
-		write(2, ": ", 2);
-		write(2, "Illegal number", sizeof("Illegal number:") - 1);
-		write(2, ": ", 2);
-		token = strtok(NULL, TOK_DELIM);
-		write(2, token, (int)strlen(token));
-		write(2, "\n", 1);
-	}
+		exit_error(programe_name, counter, line);
 	free(counter);
+}
+/**
+ * path_error - Function that print error
+ * @programe_name: Programe_name
+ * @counter: Count commands
+ * @line: The line
+ * Return: .
+*/
+void path_error(char *programe_name, char *counter, char *line)
+{
+	write(2, programe_name, _strlen(programe_name));
+	write(2, ": ", 2);
+	write(2, counter, strlen(counter));
+	write(2, ": ", 2);
+	write(2, line, (int)strlen(line));
+	write(2, ": ", 2);
+	write(2, "Permission denied", sizeof("Permission denied") - 1);
+	write(2, "\n", 1);
+}
+/**
+ * command_error - Function that print error
+ * @programe_name: Programe_name
+ * @counter: Count commands
+ * @line: The line
+ * Return: .
+*/
+void command_error(char *programe_name, char *counter, char *line)
+{
+	write(2, programe_name, _strlen(programe_name));
+	write(2, ": ", 2);
+	write(2, counter, strlen(counter));
+	write(2, ": ", 2);
+	write(2, line, (int)strlen(line));
+	write(2, ": ", 2);
+	write(2, "not found", sizeof("not found") - 1);
+	write(2, "\n", 1);
+}
+/**
+ * exit_error - Function that print error
+ * @programe_name: Programe_name
+ * @counter: Count commands
+ * @line: The line
+ * Return: .
+*/
+void exit_error(char *programe_name, char *counter, char *line)
+{
+	char *token;
+
+	strtok(line, TOK_DELIM);
+	write(2, programe_name, _strlen(programe_name));
+	write(2, ": ", 2);
+	write(2, counter, strlen(counter));
+	write(2, ": ", 2);
+	write(2, line, (int)strlen(line));
+	write(2, ": ", 2);
+	write(2, "Illegal number", sizeof("Illegal number:") - 1);
+	write(2, ": ", 2);
+	token = strtok(NULL, TOK_DELIM);
+	write(2, token, (int)strlen(token));
+	write(2, "\n", 1);
 }
 /**
  * print_number - number to string

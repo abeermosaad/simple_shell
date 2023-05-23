@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * non_interactive - Function that run SHELL program in non-interactive mode
+ * @argv: Argument vector
+ * @env: The shell environment
+ * Return: .
+*/
 void non_interactive(char **argv, char *env[])
 {
 	char *line = NULL, *command, *line_copy,

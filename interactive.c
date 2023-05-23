@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * interactive - Function that run SHELL program in interactive mode
+ * @argv: Argument vector
+ * @env: The shell environment
+ * Return: .
+*/
 void interactive(char **argv, char *env[])
 {
 	char *line = NULL, *command, *line_copy,
@@ -18,7 +23,7 @@ void interactive(char **argv, char *env[])
 			write(1, "\n", 1);
 			break;
 		}
-		line_copy = handle_new_line(line);                        
+		line_copy = handle_new_line(line);
 		command = is_excutable(line_copy);
 		if (_strcmp(line_copy, "\n") == 0)
 			continue;

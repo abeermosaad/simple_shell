@@ -38,8 +38,8 @@ char *is_excutable(char *line)
 	int len_command = 0, len_tok = 0;
 
 	path = getenv("PATH");
-	path_copy = strdup(path);
-	line_copy = strdup(line);
+	path_copy = _strdup(path);
+	line_copy = _strdup(line);
 	_strtok(line_copy, TOK_DELIM);
 	if ((access(line_copy, F_OK) == 0) && (strstr(line_copy, "bin")))
 	{

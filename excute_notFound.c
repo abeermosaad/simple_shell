@@ -1,6 +1,7 @@
 #include "main.h"
 
-void excute_notFound (char *line, char **cmd_argv, char *environment[], int *status)
+void excute_notFound(char *line, char **cmd_argv,
+char *environment[], int *status)
 {
 	int exc;
 	int id;
@@ -11,8 +12,7 @@ void excute_notFound (char *line, char **cmd_argv, char *environment[], int *sta
 		perror("ERROR IN FORK");
 	if (id == 0)
 	{
-		
-		exc = execve(line, cmd_argv, environment); /// /bin 126 
+		exc = execve(line, cmd_argv, environment);
 		if (exc == -1)
 		{
 			exit(127);

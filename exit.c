@@ -16,7 +16,6 @@ int ex(char *line, int *stat, int count, char *programe)
 	line_copy = strdup(line);
 	line_copy = _strtok(line_copy, " ");
 	status = _strtok(NULL, " ");
-
 	if (!status)
 	{
 		free(line_copy);
@@ -38,6 +37,7 @@ int ex(char *line, int *stat, int count, char *programe)
 		if (is_valid)
 		{
 			exit_status = _atoi(status);
+			free(line);
 			free(line_copy);
 			exit(exit_status);
 		}
