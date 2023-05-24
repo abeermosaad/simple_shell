@@ -10,21 +10,14 @@
 void print_error(char *programe_name, int count, int stat, char *line)
 {
 	char *counter;
-	char *copy;
 
-	copy = (char *)malloc((_strlen(line) + 1) * sizeof(char));
-	strcpy(copy, line);
-	strtok(copy, TOK_DELIM);
 	counter = print_number(count);
 	if (stat == 126)
 		path_error(programe_name, counter, line);
 	if (stat == 127)
 		command_error(programe_name, counter, line);
-	if (stat == 2 && (_strcmp(copy, "exit") == 0))
-	{
-		free(copy);
+	if (stat == 2)
 		exit_error(programe_name, counter, line);
-	}
 	free(counter);
 }
 /**
