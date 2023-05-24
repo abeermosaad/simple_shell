@@ -23,7 +23,7 @@ void non_interactive(char **argv)
 		}
 		line_copy = handle_new_line(line);
 		command = is_excutable(line_copy);
-		if (_strcmp(line_copy, "\n") == 0)
+		if (_strcmp(line_copy, "\n") == 0 || line_copy[0] == '#')
 			continue;
 		else if (is_builtin(argv[0], line_copy, &status, count, line) != -1)
 			{
