@@ -17,6 +17,8 @@ char **generate_argv(char *line)
 	argv_idx = _strtok(line, TOK_DELIM);
 	while (argv_idx)
 	{
+		if (argv_idx[0] == '#')
+			break;
 		argv[i] = argv_idx;
 		argv_idx = _strtok(NULL, TOK_DELIM);
 		i++;
