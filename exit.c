@@ -7,7 +7,7 @@
  * @programe: Programe_name
  * Return: status
 */
-int ex(char *line, int *stat, int count, char *programe)
+int ex(char *line, int *stat, int count, char *programe, char *ml)
 {
 	int exit_status = 0, len, is_valid = 1, i;
 	char *status;
@@ -18,6 +18,7 @@ int ex(char *line, int *stat, int count, char *programe)
 	status = _strtok(NULL, " ");
 	if (!status)
 	{
+		free(ml);
 		free(line_copy);
 		exit(*stat);
 	}

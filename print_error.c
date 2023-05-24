@@ -16,7 +16,7 @@ void print_error(char *programe_name, int count, int stat, char *line)
 		path_error(programe_name, counter, line);
 	if (stat == 127)
 		command_error(programe_name, counter, line);
-	if (stat == 2)
+	if (stat == 2 && (strncmp(line, "exit", 4) == 0))
 		exit_error(programe_name, counter, line);
 	free(counter);
 }

@@ -27,7 +27,7 @@ void interactive(char **argv, char *env[])
 		command = is_excutable(line_copy);
 		if (_strcmp(line_copy, "\n") == 0)
 			continue;
-		else if (is_builtin(argv[0], line_copy, env, &status, count) != -1)
+		else if (is_builtin(argv[0], line_copy, env, &status, count, line) != -1)
 		{
 			free(command);
 			continue;

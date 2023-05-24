@@ -8,7 +8,7 @@
  * @line: The line
  * Return: .
 */
-int is_builtin(char *programe, char *line, char **env, int *status, int count)
+int is_builtin(char *programe, char *line, char **env, int *status, int count, char* ml)
 {
 	int i, flag = 1;
 	char *line_copy;
@@ -28,7 +28,7 @@ int is_builtin(char *programe, char *line, char **env, int *status, int count)
 	switch (i)
 	{
 		case 0:
-			ex(line, status, count, programe);
+			ex(line, status, count, programe, ml);
 			break;
 		case 1:
 			_env(env);
