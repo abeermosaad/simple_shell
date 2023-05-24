@@ -1,10 +1,10 @@
 #include "main.h"
 /**
  * _env - Function that ptint env command
- * @env: environment variables
+ *
  * Return: .
 */
-void _env()
+void _env(void)
 {
 	char **envir = environ;
 	int len;

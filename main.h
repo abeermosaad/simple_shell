@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 /*env command*/
-void _env();
+void _env(void);
 char *_getenv(char *name);
 extern char **environ;
 int setenv_builtin(const char *name, const char *value);
@@ -30,7 +30,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *_strtok(char *str, const char *delimiters);
 /*Excution commands*/
 char *handle_new_line(char *line);
-int is_builtin(char *programe, char *line, int *status, int count, char* ml);
+int is_builtin(char *programe, char *line, int *status, int count, char *ml);
 char *is_excutable(char *cmd);
 char **generate_argv(char *line);
 int excute(char *command, char **argv, char *env[], int *status);

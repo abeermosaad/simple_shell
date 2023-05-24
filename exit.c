@@ -5,6 +5,7 @@
  * @stat: Stat of process
  * @count: Count commands
  * @programe: Programe_name
+ * @ml: the line
  * Return: status
 */
 int ex(char *line, int *stat, int count, char *programe, char *ml)
@@ -41,13 +42,11 @@ int ex(char *line, int *stat, int count, char *programe, char *ml)
 			free(line);
 			free(line_copy);
 			exit(exit_status);
-		}
-		else
+		} else
 		{
 			*stat = 2;
 			print_error(programe, count, *stat, line);
 			free(line_copy);
 		}
-	}
-	return (exit_status);
+	} return (exit_status);
 }

@@ -2,7 +2,6 @@
 /**
  * interactive - Function that run SHELL program in interactive mode
  * @argv: Argument vector
- * @env: The shell environment
  * Return: .
 */
 void interactive(char **argv)

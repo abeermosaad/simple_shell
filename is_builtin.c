@@ -3,12 +3,12 @@
  * is_builtin - Function that check built ins
  * @programe: Programe_name
  * @count: Count commands
- * @env: Environment
  * @status: Stat of process
  * @line: The line
+ * @ml: line
  * Return: .
 */
-int is_builtin(char *programe, char *line, int *status, int count, char* ml)
+int is_builtin(char *programe, char *line, int *status, int count, char *ml)
 {
 	int i, flag = 1;
 	char *line_copy;
