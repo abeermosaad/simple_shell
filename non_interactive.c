@@ -5,7 +5,7 @@
  * @env: The shell environment
  * Return: .
 */
-void non_interactive(char **argv, char *env[])
+void non_interactive(char **argv)
 {
 	char *line = NULL, *command, *line_copy,
 	**cmd_argv = {NULL}, *environment[] = {NULL};
@@ -25,7 +25,7 @@ void non_interactive(char **argv, char *env[])
 		command = is_excutable(line_copy);
 		if (_strcmp(line_copy, "\n") == 0)
 			continue;
-		else if (is_builtin(argv[0], line_copy, env, &status, count, line) != -1)
+		else if (is_builtin(argv[0], line_copy, &status, count, line) != -1)
 			{
 			free(command);
 			continue;

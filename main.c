@@ -6,12 +6,12 @@
  * @env: The shell environment
  * Return: .
 */
-int main(__attribute__((unused)) int argc, char *argv[], char **env)
+int main(__attribute__((unused)) int argc, char *argv[])
 {
 	if (isatty(STDIN_FILENO) == 0)
-		non_interactive(argv, env);
+		non_interactive(argv);
 	else
-		interactive(argv, env);
+		interactive(argv);
 
 	return (0);
 }
