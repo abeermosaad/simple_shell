@@ -7,7 +7,7 @@
 void _env(char **env)
 {
 	char **envir = env;
-	int len, i;
+	int len;
 
 	while ((*envir))
 	{
@@ -15,6 +15,5 @@ void _env(char **env)
 		write(1, *envir, len);
 		write(1, "\n", 1);
 		envir++;
-		i++;
 	}
 }

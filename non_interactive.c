@@ -26,7 +26,10 @@ void non_interactive(char **argv, char *env[])
 		if (_strcmp(line_copy, "\n") == 0)
 			continue;
 		else if (is_builtin(argv[0], line_copy, env, &status, count) != -1)
+			{
+			free(command);
 			continue;
+			}
 		else if (command != NULL)
 		{
 			cmd_argv = generate_argv(line_copy);
