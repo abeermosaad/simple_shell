@@ -4,9 +4,9 @@
  * @env: environment variables
  * Return: .
 */
-void _env(char **env)
+void _env( __attribute__((unused)) char **env)
 {
-	char **envir = env;
+	char **envir = environ;
 	int len;
 
 	while ((*envir))
