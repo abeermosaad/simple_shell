@@ -14,7 +14,7 @@
 void _env(char **env);
 char *_getenv(char *name);
 extern char **environ;
-int setenv_builtin(const char* name, const char* value);
+int setenv_builtin(const char *name, const char *value);
 /*exit command*/
 int ex(char *line, int *stat, int count, char *programe);
 /*Handeled functions*/

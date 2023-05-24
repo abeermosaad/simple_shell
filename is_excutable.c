@@ -41,7 +41,8 @@ char *is_excutable(char *line)
 	path_copy = _strdup(path);
 	line_copy = _strdup(line);
 	_strtok(line_copy, TOK_DELIM);
-	if ((access(line_copy, F_OK) == 0) && ((line_copy[0] == '/') || (line_copy[1] == '/') || (line_copy[2] == '/')))
+	if ((access(line_copy, F_OK) == 0) && ((line_copy[0] == '/') ||
+	(line_copy[1] == '/') || (line_copy[2] == '/')))
 	{
 		free(path_copy);
 		return (line_copy);
