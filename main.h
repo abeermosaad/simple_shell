@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 /*env command*/
-void _env(int *status);
+void _env(void);
 char *_getenv(char *name);
 extern char **environ;
 int setenv_builtin(const char *name, const char *value);

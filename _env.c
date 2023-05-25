@@ -4,14 +4,16 @@
  *
  * Return: .
 */
-void _env(int *status)
+void _env(void)
 {
-	int i;
+	char **envir = environ;
+	int len;
 
-	for (i = 0; environ[i] != NULL; i++)
+	while ((*envir))
 	{
-		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-		write(STDOUT_FILENO, "\n", 1);
+		len = (int)strlen(*envir);
+		write(1, *envir, len);
+		write(1, "\n", 1);
+		envir++;
 	}
-	*status = 0;
 }
