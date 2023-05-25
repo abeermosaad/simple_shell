@@ -2,7 +2,7 @@
 /**
  * non_interactive - Function that run SHELL program in non-interactive mode
  * @argv: Argument vector
- * Return: .
+ * Return: 
 */
 void non_interactive(char **argv)
 {
