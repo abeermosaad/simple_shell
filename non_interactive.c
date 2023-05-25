@@ -2,7 +2,7 @@
 /**
  * non_interactive - Function that run SHELL program in non-interactive mode
  * @argv: Argument vector
- * Return: .
+ * Return: 
 */
 void non_interactive(char **argv)
 {
@@ -25,10 +25,10 @@ void non_interactive(char **argv)
 		if (_strcmp(line_copy, "\n") == 0 || line_copy[0] == '#')
 			continue;
 		else if (is_builtin(argv[0], line_copy, &status, count, line) != -1)
-			{
+		{
 			free(command);
 			continue;
-			}
+		}
 		else if (command != NULL)
 		{
 			cmd_argv = generate_argv(line_copy);
