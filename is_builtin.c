@@ -31,8 +31,7 @@ int is_builtin(char *programe, char *line, int *status, int count, char *ml)
 			ex(line, status, count, programe, ml);
 			break;
 		case 1:
-			*status = 0;
-			_env();
+			_env(status);
 			break;
 	}
 	if (flag)
